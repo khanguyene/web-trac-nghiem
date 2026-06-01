@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trắc Nghiệm Online</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    padding:20px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.question{
+    display:none;
+}
+
+.question.active{
+    display:block;
+}
+
+.option{
+    display:block;
+    padding:12px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.correct{
+    background:#4CAF50;
+    color:white;
+    border-color:#4CAF50;
+}
+
+.wrong{
+    background:#f44336;
+    color:white;
+    border-color:#f44336;
+}
+
+#result{
+    display:none;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>Kiểm Tra Trắc Nghiệm</h2>
+
+
+<div class="question" data-answer="C">
+    <h3>Câu 1: Cổng DVI dùng để kết nối với thiết bị nào sau đây?</h3>
+    <label class="option"><input type="radio" name="q1" value="A"> Printer</label>
+    <label class="option"><input type="radio" name="q1" value="B"> Scanner</label>
+    <label class="option"><input type="radio" name="q1" value="C"> Monitor</label>
+    <label class="option"><input type="radio" name="q1" value="D"> Fax</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 2: Trong mạng máy tính, thuật ngữ Share có ý nghĩa gì?</h3>
+    <label class="option"><input type="radio" name="q2" value="A"> Chia sẻ tài nguyên</label>
+    <label class="option"><input type="radio" name="q2" value="B"> Nhãn hiệu của thiết bị mạng</label>
+    <label class="option"><input type="radio" name="q2" value="C"> Thực hiện lệnh in</label>
+    <label class="option"><input type="radio" name="q2" value="D"> Phần mềm hỗ trợ mạng</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 3: Khi nhận được thông báo lỗi "Non-system disk or disk error" nguyên nhân là do?</h3>
+    <label class="option"><input type="radio" name="q3" value="A"> Chưa cài HĐH hoặc lỗi boot sector</label>
+    <label class="option"><input type="radio" name="q3" value="B"> Dung lượng đĩa hạn chế</label>
+    <label class="option"><input type="radio" name="q3" value="C"> Chưa gắn RAM</label>
+    <label class="option"><input type="radio" name="q3" value="D"> Chưa cài driver</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 4: Điều nào sau đây miêu tả đúng nhất về CPU?</h3>
+    <label class="option"><input type="radio" name="q4" value="A"> Chip chỉ đọc dữ liệu</label>
+    <label class="option"><input type="radio" name="q4" value="B"> Chip lưu trữ dữ liệu</label>
+    <label class="option"><input type="radio" name="q4" value="C"> Thiết bị điều khiển chức năng máy tính</label>
+    <label class="option"><input type="radio" name="q4" value="D"> Thiết bị hiển thị dữ liệu</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 5: Khi máy tính bị tắt, dữ liệu trong RAM sẽ?</h3>
+    <label class="option"><input type="radio" name="q5" value="A"> Được lưu</label>
+    <label class="option"><input type="radio" name="q5" value="B"> Bị mất</label>
+    <label class="option"><input type="radio" name="q5" value="C"> Hiện lại khi bật máy</label>
+    <label class="option"><input type="radio" name="q5" value="D"> Tự động in ra</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 6: Hệ điều hành mã nguồn mở thông dụng nhất hiện nay là?</h3>
+    <label class="option"><input type="radio" name="q6" value="A"> Mac</label>
+    <label class="option"><input type="radio" name="q6" value="B"> Windows 7</label>
+    <label class="option"><input type="radio" name="q6" value="C"> Windows 10</label>
+    <label class="option"><input type="radio" name="q6" value="D"> Linux</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 7: Hệ thống bộ nhớ của máy tính bao gồm?</h3>
+    <label class="option"><input type="radio" name="q7" value="A"> Bộ nhớ trong và bộ nhớ ngoài</label>
+    <label class="option"><input type="radio" name="q7" value="B"> Cache và bộ nhớ ngoài</label>
+    <label class="option"><input type="radio" name="q7" value="C"> Bộ nhớ ngoài và ROM</label>
+    <label class="option"><input type="radio" name="q7" value="D"> Đĩa quang và bộ nhớ trong</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 8: Thiết bị thông dụng cung cấp dữ liệu cho máy xử lý là?</h3>
+    <label class="option"><input type="radio" name="q8" value="A"> Bàn phím, chuột, máy in</label>
+    <label class="option"><input type="radio" name="q8" value="B"> Máy quét ảnh</label>
+    <label class="option"><input type="radio" name="q8" value="C"> Bàn phím, chuột, máy quét ảnh</label>
+    <label class="option"><input type="radio" name="q8" value="D"> Máy quét ảnh, chuột</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 9: Máy tính là gì?</h3>
+    <label class="option"><input type="radio" name="q9" value="A"> Máy giải phương trình</label>
+    <label class="option"><input type="radio" name="q9" value="B"> Thiết bị điện tử lưu trữ và xử lý dữ liệu</label>
+    <label class="option"><input type="radio" name="q9" value="C"> Máy chơi game</label>
+    <label class="option"><input type="radio" name="q9" value="D"> Máy tính toán cơ bản</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 10: Bộ phận nào sau đây là phần cứng?</h3>
+    <label class="option"><input type="radio" name="q10" value="A"> Màn hình</label>
+    <label class="option"><input type="radio" name="q10" value="B"> Chương trình</label>
+    <label class="option"><input type="radio" name="q10" value="C"> Hệ điều hành</label>
+    <label class="option"><input type="radio" name="q10" value="D"> Microsoft Office</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 11: Ngôn ngữ FORTRAN ra đời vào năm nào?</h3>
+    <label class="option"><input type="radio" name="q11" value="A"> 1954</label>
+    <label class="option"><input type="radio" name="q11" value="B"> 1946</label>
+    <label class="option"><input type="radio" name="q11" value="C"> 1950</label>
+    <label class="option"><input type="radio" name="q11" value="D"> 1960</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 12: Tốc độ bus của RAM PC2-5400 là bao nhiêu MHz?</h3>
+    <label class="option"><input type="radio" name="q12" value="A"> 400</label>
+    <label class="option"><input type="radio" name="q12" value="B"> 667</label>
+    <label class="option"><input type="radio" name="q12" value="C"> 533</label>
+    <label class="option"><input type="radio" name="q12" value="D"> 266</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 13: Mỗi Track trên đĩa cứng được chia thành các phần nhỏ gọi là?</h3>
+    <label class="option"><input type="radio" name="q13" value="A"> Sector</label>
+    <label class="option"><input type="radio" name="q13" value="B"> Head</label>
+    <label class="option"><input type="radio" name="q13" value="C"> Cylinder</label>
+    <label class="option"><input type="radio" name="q13" value="D"> Cluster</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 14: BIOS là gì?</h3>
+    <label class="option"><input type="radio" name="q14" value="A"> Basic Input Output System</label>
+    <label class="option"><input type="radio" name="q14" value="B"> Basic Inbox Outbox System</label>
+    <label class="option"><input type="radio" name="q14" value="C"> Between Input Output System</label>
+    <label class="option"><input type="radio" name="q14" value="D"> Between Input Output Service</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 15: Công dụng của Socket là gì?</h3>
+    <label class="option"><input type="radio" name="q15" value="A"> Giúp CPU thực hiện lệnh điều khiển</label>
+    <label class="option"><input type="radio" name="q15" value="B"> Giúp CPU thực hiện phép toán</label>
+    <label class="option"><input type="radio" name="q15" value="C"> Giúp CPU kết nối với Mainboard</label>
+    <label class="option"><input type="radio" name="q15" value="D"> Tất cả các đáp án trên</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 16: Cấu trúc máy tính gồm?</h3>
+    <label class="option"><input type="radio" name="q16" value="A"> Thiết bị xử lý</label>
+    <label class="option"><input type="radio" name="q16" value="B"> Thiết bị lưu trữ</label>
+    <label class="option"><input type="radio" name="q16" value="C"> Thiết bị nhập/xuất</label>
+    <label class="option"><input type="radio" name="q16" value="D"> Tất cả các thiết bị trên</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 17: Card mạng (NIC) được cắm vào mainboard qua khe nào?</h3>
+    <label class="option"><input type="radio" name="q17" value="A"> IDE</label>
+    <label class="option"><input type="radio" name="q17" value="B"> ISA</label>
+    <label class="option"><input type="radio" name="q17" value="C"> PCI</label>
+    <label class="option"><input type="radio" name="q17" value="D"> FDD</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 18: Định dạng nhanh phân vùng NTFS cần chọn?</h3>
+    <label class="option"><input type="radio" name="q18" value="A"> FAT (quick)</label>
+    <label class="option"><input type="radio" name="q18" value="B"> NTFS</label>
+    <label class="option"><input type="radio" name="q18" value="C"> NTFS (quick)</label>
+    <label class="option"><input type="radio" name="q18" value="D"> FAT</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 19: Sau khi thay pin CMOS cần làm gì?</h3>
+    <label class="option"><input type="radio" name="q19" value="A"> Chạy Fdisk</label>
+    <label class="option"><input type="radio" name="q19" value="B"> Thiết lập lại BIOS</label>
+    <label class="option"><input type="radio" name="q19" value="C"> Cài lại hệ điều hành</label>
+    <label class="option"><input type="radio" name="q19" value="D"> Format ổ cứng</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 20: Thiết bị nào sau đây thuộc nhóm thiết bị xuất?</h3>
+    <label class="option"><input type="radio" name="q20" value="A"> Bàn phím</label>
+    <label class="option"><input type="radio" name="q20" value="B"> Máy in</label>
+    <label class="option"><input type="radio" name="q20" value="C"> Chuột</label>
+    <label class="option"><input type="radio" name="q20" value="D"> Máy quét</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 21: Thiết lập jumper master cho ổ đĩa cứng nhằm mục đích gì?</h3>
+    <label class="option"><input type="radio" name="q21" value="A"> Xác định ổ đĩa phụ</label>
+    <label class="option"><input type="radio" name="q21" value="B"> Theo mặc định nhà sản xuất</label>
+    <label class="option"><input type="radio" name="q21" value="C"> Xác định ổ đĩa chính</label>
+    <label class="option"><input type="radio" name="q21" value="D"> Tăng tốc truy xuất đĩa</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 22: Điều nào sau đây miêu tả đúng nhất về CPU?</h3>
+    <label class="option"><input type="radio" name="q22" value="A"> Chip chỉ đọc dữ liệu</label>
+    <label class="option"><input type="radio" name="q22" value="B"> Chip lưu trữ dữ liệu</label>
+    <label class="option"><input type="radio" name="q22" value="C"> Thiết bị điều khiển chức năng máy tính bằng điện tử</label>
+    <label class="option"><input type="radio" name="q22" value="D"> Thiết bị hiển thị dữ liệu</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 23: Phím tắt đóng ứng dụng đang mở trên Windows?</h3>
+    <label class="option"><input type="radio" name="q23" value="A"> Alt + F8</label>
+    <label class="option"><input type="radio" name="q23" value="B"> Ctrl + X</label>
+    <label class="option"><input type="radio" name="q23" value="C"> Alt + F4</label>
+    <label class="option"><input type="radio" name="q23" value="D"> Shift + P</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 24: Bàn phím máy tính có bao nhiêu phím chức năng?</h3>
+    <label class="option"><input type="radio" name="q24" value="A"> 10</label>
+    <label class="option"><input type="radio" name="q24" value="B"> 12</label>
+    <label class="option"><input type="radio" name="q24" value="C"> 14</label>
+    <label class="option"><input type="radio" name="q24" value="D"> 8</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 25: RAM là viết tắt của?</h3>
+    <label class="option"><input type="radio" name="q25" value="A"> Read Access Memory</label>
+    <label class="option"><input type="radio" name="q25" value="B"> Random Access Memory</label>
+    <label class="option"><input type="radio" name="q25" value="C"> Rewrite Access Memory</label>
+    <label class="option"><input type="radio" name="q25" value="D"> Cả 3 đúng</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 26: Chuột quang hoạt động dựa trên nguyên lý gì?</h3>
+    <label class="option"><input type="radio" name="q26" value="A"> Tia electron</label>
+    <label class="option"><input type="radio" name="q26" value="B"> Chuyển động cơ học</label>
+    <label class="option"><input type="radio" name="q26" value="C"> Lực từ trường</label>
+    <label class="option"><input type="radio" name="q26" value="D"> Cảm biến ánh sáng phản xạ</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 27: Hệ nhị phân sử dụng bao nhiêu ký tự?</h3>
+    <label class="option"><input type="radio" name="q27" value="A"> 2</label>
+    <label class="option"><input type="radio" name="q27" value="B"> 4</label>
+    <label class="option"><input type="radio" name="q27" value="C"> 8</label>
+    <label class="option"><input type="radio" name="q27" value="D"> 16</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 28: Đâu không phải là hệ điều hành?</h3>
+    <label class="option"><input type="radio" name="q28" value="A"> DOS</label>
+    <label class="option"><input type="radio" name="q28" value="B"> Mac</label>
+    <label class="option"><input type="radio" name="q28" value="C"> Linux</label>
+    <label class="option"><input type="radio" name="q28" value="D"> C</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 29: Quá trình khởi động máy tính bắt đầu từ đâu?</h3>
+    <label class="option"><input type="radio" name="q29" value="A"> USB</label>
+    <label class="option"><input type="radio" name="q29" value="B"> BIOS</label>
+    <label class="option"><input type="radio" name="q29" value="C"> RAM</label>
+    <label class="option"><input type="radio" name="q29" value="D"> HDD</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 30: Windows Vista yêu cầu phân vùng cài đặt định dạng gì?</h3>
+    <label class="option"><input type="radio" name="q30" value="A"> FAT32</label>
+    <label class="option"><input type="radio" name="q30" value="B"> NTFS</label>
+    <label class="option"><input type="radio" name="q30" value="C"> HPFS</label>
+    <label class="option"><input type="radio" name="q30" value="D"> EXT3</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 31: Công nghệ Hyper-Threading được phát triển cho?</h3>
+    <label class="option"><input type="radio" name="q31" value="A"> CPU</label>
+    <label class="option"><input type="radio" name="q31" value="B"> Mainboard</label>
+    <label class="option"><input type="radio" name="q31" value="C"> RAM</label>
+    <label class="option"><input type="radio" name="q31" value="D"> HDD</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 32: Thiết bị nào có tốc độ truy xuất dữ liệu nhanh nhất?</h3>
+    <label class="option"><input type="radio" name="q32" value="A"> Flash Memory</label>
+    <label class="option"><input type="radio" name="q32" value="B"> RAM</label>
+    <label class="option"><input type="radio" name="q32" value="C"> HDD</label>
+    <label class="option"><input type="radio" name="q32" value="D"> CD-ROM</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 33: Lệnh chuyển FAT32 sang NTFS mà không mất dữ liệu?</h3>
+    <label class="option"><input type="radio" name="q33" value="A"> Format c:/s</label>
+    <label class="option"><input type="radio" name="q33" value="B"> Fdisk c:/fs:ntfs</label>
+    <label class="option"><input type="radio" name="q33" value="C"> Convert c:/fs:ntfs</label>
+    <label class="option"><input type="radio" name="q33" value="D"> Defrag c:</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 34: NTFS viết tắt của?</h3>
+    <label class="option"><input type="radio" name="q34" value="A"> New Technology File Standard</label>
+    <label class="option"><input type="radio" name="q34" value="B"> News Television Fill System</label>
+    <label class="option"><input type="radio" name="q34" value="C"> Network Type File System</label>
+    <label class="option"><input type="radio" name="q34" value="D"> New Technology File System</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 35: Cách kiểm tra bộ nguồn hoạt động?</h3>
+    <label class="option"><input type="radio" name="q35" value="A"> Nối dây xanh lá với dây đen</label>
+    <label class="option"><input type="radio" name="q35" value="B"> Nối dây cam với dây bất kỳ</label>
+    <label class="option"><input type="radio" name="q35" value="C"> Nối dây xanh lá với dây đỏ</label>
+    <label class="option"><input type="radio" name="q35" value="D"> Nối dây đỏ với dây vàng</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 36: RAM PC3200, số 3200 có nghĩa là?</h3>
+    <label class="option"><input type="radio" name="q36" value="A"> Xung nhịp 3200MHz</label>
+    <label class="option"><input type="radio" name="q36" value="B"> Mã phân biệt RAM</label>
+    <label class="option"><input type="radio" name="q36" value="C"> Băng thông 32MB/s</label>
+    <label class="option"><input type="radio" name="q36" value="D"> Băng thông 3200MB/s</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 37: Intel Core 2 Duo có bao nhiêu nhân xử lý?</h3>
+    <label class="option"><input type="radio" name="q37" value="A"> 1</label>
+    <label class="option"><input type="radio" name="q37" value="B"> 2</label>
+    <label class="option"><input type="radio" name="q37" value="C"> 3</label>
+    <label class="option"><input type="radio" name="q37" value="D"> 4</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 38: Scanner thường kết nối qua cổng nào?</h3>
+    <label class="option"><input type="radio" name="q38" value="A"> USB</label>
+    <label class="option"><input type="radio" name="q38" value="B"> RJ45</label>
+    <label class="option"><input type="radio" name="q38" value="C"> LPT</label>
+    <label class="option"><input type="radio" name="q38" value="D"> RJ11</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 39: Thuật ngữ RAM là viết tắt của?</h3>
+    <label class="option"><input type="radio" name="q39" value="A"> Read Access Memory</label>
+    <label class="option"><input type="radio" name="q39" value="B"> Recent Access Memory</label>
+    <label class="option"><input type="radio" name="q39" value="C"> Random Access Memory</label>
+    <label class="option"><input type="radio" name="q39" value="D"> Read And Modify</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 40: Cơ chế cho phép truy xuất trực tiếp bộ nhớ không qua CPU?</h3>
+    <label class="option"><input type="radio" name="q40" value="A"> SMART</label>
+    <label class="option"><input type="radio" name="q40" value="B"> DMA</label>
+    <label class="option"><input type="radio" name="q40" value="C"> PIO</label>
+    <label class="option"><input type="radio" name="q40" value="D"> IRQ</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 41: Windows 7 ra mắt vào năm nào?</h3>
+    <label class="option"><input type="radio" name="q41" value="A"> 2005</label>
+    <label class="option"><input type="radio" name="q41" value="B"> 2009</label>
+    <label class="option"><input type="radio" name="q41" value="C"> 2011</label>
+    <label class="option"><input type="radio" name="q41" value="D"> 2015</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 42: Pin CMOS có điện áp?</h3>
+    <label class="option"><input type="radio" name="q42" value="A"> 5V</label>
+    <label class="option"><input type="radio" name="q42" value="B"> 6V</label>
+    <label class="option"><input type="radio" name="q42" value="C"> 3V</label>
+    <label class="option"><input type="radio" name="q42" value="D"> 12V</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 43: USB là viết tắt của?</h3>
+    <label class="option"><input type="radio" name="q43" value="A"> Using System Bridge Port</label>
+    <label class="option"><input type="radio" name="q43" value="B"> Understand Supplemental Bus Port</label>
+    <label class="option"><input type="radio" name="q43" value="C"> Unit Smart Button Port</label>
+    <label class="option"><input type="radio" name="q43" value="D"> Universal Serial Bus Port</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 44: Máy tính thế hệ thứ nhất sử dụng linh kiện nào?</h3>
+    <label class="option"><input type="radio" name="q44" value="A"> Transistor</label>
+    <label class="option"><input type="radio" name="q44" value="B"> IC</label>
+    <label class="option"><input type="radio" name="q44" value="C"> Đèn điện tử</label>
+    <label class="option"><input type="radio" name="q44" value="D"> Vi mạch</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 45: Máy ENIAC sử dụng khoảng bao nhiêu bóng đèn điện tử?</h3>
+    <label class="option"><input type="radio" name="q45" value="A"> 10.000</label>
+    <label class="option"><input type="radio" name="q45" value="B"> 1.000</label>
+    <label class="option"><input type="radio" name="q45" value="C"> 5.000</label>
+    <label class="option"><input type="radio" name="q45" value="D"> 18.000</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 46: Máy tính thế hệ thứ hai dùng linh kiện chính là?</h3>
+    <label class="option"><input type="radio" name="q46" value="A"> Đèn điện tử</label>
+    <label class="option"><input type="radio" name="q46" value="B"> Transistor</label>
+    <label class="option"><input type="radio" name="q46" value="C"> Siêu vi xử lý</label>
+    <label class="option"><input type="radio" name="q46" value="D"> IC</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 47: Máy tính thế hệ thứ ba sử dụng?</h3>
+    <label class="option"><input type="radio" name="q47" value="A"> IC</label>
+    <label class="option"><input type="radio" name="q47" value="B"> Transistor</label>
+    <label class="option"><input type="radio" name="q47" value="C"> CPU</label>
+    <label class="option"><input type="radio" name="q47" value="D"> GPU</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 48: Thuật ngữ PC nghĩa là?</h3>
+    <label class="option"><input type="radio" name="q48" value="A"> Public Computer</label>
+    <label class="option"><input type="radio" name="q48" value="B"> Peripheral Computer</label>
+    <label class="option"><input type="radio" name="q48" value="C"> Personal Computer</label>
+    <label class="option"><input type="radio" name="q48" value="D"> Professional Computer</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 49: Thùng máy có chức năng chính?</h3>
+    <label class="option"><input type="radio" name="q49" value="A"> Tăng tốc vi xử lý</label>
+    <label class="option"><input type="radio" name="q49" value="B"> Bảo vệ và gắn các linh kiện</label>
+    <label class="option"><input type="radio" name="q49" value="C"> Nâng cấp RAM</label>
+    <label class="option"><input type="radio" name="q49" value="D"> Cung cấp điện</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 50: Case chuẩn AT có đặc điểm?</h3>
+    <label class="option"><input type="radio" name="q50" value="A"> Không tắt nguồn tự động</label>
+    <label class="option"><input type="radio" name="q50" value="B"> Tắt nguồn tự động</label>
+    <label class="option"><input type="radio" name="q50" value="C"> Dùng nguồn 24 pin</label>
+    <label class="option"><input type="radio" name="q50" value="D"> Dùng USB 3.0</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 51: Dây 12V của bộ nguồn có màu gì?</h3>
+    <label class="option"><input type="radio" name="q51" value="A"> Đen</label>
+    <label class="option"><input type="radio" name="q51" value="B"> Xanh</label>
+    <label class="option"><input type="radio" name="q51" value="C"> Đỏ</label>
+    <label class="option"><input type="radio" name="q51" value="D"> Vàng</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 52: Đầu cấp nguồn cho CPU thường là?</h3>
+    <label class="option"><input type="radio" name="q52" value="A"> 24 pin</label>
+    <label class="option"><input type="radio" name="q52" value="B"> 8 pin hoặc 4 pin</label>
+    <label class="option"><input type="radio" name="q52" value="C"> 6 pin</label>
+    <label class="option"><input type="radio" name="q52" value="D"> SATA</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 53: Cache nằm giữa thiết bị nào?</h3>
+    <label class="option"><input type="radio" name="q53" value="A"> CPU và RAM</label>
+    <label class="option"><input type="radio" name="q53" value="B"> VGA và RAM</label>
+    <label class="option"><input type="radio" name="q53" value="C"> CPU và HDD</label>
+    <label class="option"><input type="radio" name="q53" value="D"> ROM và CPU</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 54: CPU nóng bất thường do?</h3>
+    <label class="option"><input type="radio" name="q54" value="A"> Lỗi RAM</label>
+    <label class="option"><input type="radio" name="q54" value="B"> VGA yếu</label>
+    <label class="option"><input type="radio" name="q54" value="C"> Khô keo tản nhiệt</label>
+    <label class="option"><input type="radio" name="q54" value="D"> HDD hỏng</label>
+</div>
+
+<div class="question" data-answer="D">
+    <h3>Câu 55: CPU quá nóng dẫn đến?</h3>
+    <label class="option"><input type="radio" name="q55" value="A"> Màn hình sáng hơn</label>
+    <label class="option"><input type="radio" name="q55" value="B"> Không ảnh hưởng</label>
+    <label class="option"><input type="radio" name="q55" value="C"> Tăng tốc máy</label>
+    <label class="option"><input type="radio" name="q55" value="D"> Tự tắt hoặc treo</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 56: Có bao nhiêu dòng CPU Core i?</h3>
+    <label class="option"><input type="radio" name="q56" value="A"> 2</label>
+    <label class="option"><input type="radio" name="q56" value="B"> 4</label>
+    <label class="option"><input type="radio" name="q56" value="C"> 3</label>
+    <label class="option"><input type="radio" name="q56" value="D"> 5</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 57: RAM lỗi thường gây ra?</h3>
+    <label class="option"><input type="radio" name="q57" value="A"> Màn hình xanh</label>
+    <label class="option"><input type="radio" name="q57" value="B"> Máy tăng tốc độ</label>
+    <label class="option"><input type="radio" name="q57" value="C"> Không ảnh hưởng</label>
+    <label class="option"><input type="radio" name="q57" value="D"> Tăng FPS</label>
+</div>
+
+<div class="question" data-answer="C">
+    <h3>Câu 58: ROM có đặc điểm?</h3>
+    <label class="option"><input type="radio" name="q58" value="A"> Mất dữ liệu</label>
+    <label class="option"><input type="radio" name="q58" value="B"> Truy cập nhanh hơn</label>
+    <label class="option"><input type="radio" name="q58" value="C"> Không mất dữ liệu</label>
+    <label class="option"><input type="radio" name="q58" value="D"> Lưu tạm</label>
+</div>
+
+<div class="question" data-answer="B">
+    <h3>Câu 59: Kiểm tra RAM bằng lệnh?</h3>
+    <label class="option"><input type="radio" name="q59" value="A"> ipconfig</label>
+    <label class="option"><input type="radio" name="q59" value="B"> dxdiag</label>
+    <label class="option"><input type="radio" name="q59" value="C"> format</label>
+    <label class="option"><input type="radio" name="q59" value="D"> cmd</label>
+</div>
+
+<div class="question" data-answer="A">
+    <h3>Câu 60: RAM lỗi có thể gây?</h3>
+    <label class="option"><input type="radio" name="q60" value="A"> Máy không vào Windows</label>
+    <label class="option"><input type="radio" name="q60" value="B"> Không ảnh hưởng</label>
+    <label class="option"><input type="radio" name="q60" value="C"> Đèn nguồn chớp chớp</label>
+    <label class="option"><input type="radio" name="q60" value="D"> CPU nóng</label>
+</div>
+<div id="result"></div>
+
+</div>
+
+<script>
+    // lấy tất cả câu hỏi
+    const questions = document.querySelectorAll(".question");
+let currentQuestion = 0;
+// điểm số
+let score = 0;
+questions[0].classList.add("active");
+ // duyệt qua từng câu hỏi
+questions.forEach((question,index)=>{
+ // lấy đáp án đúng của câu hỏi
+    const correctAnswer = question.dataset.answer;
+
+    question.querySelectorAll("input").forEach(input=>{
+
+        input.addEventListener("change",function(){
+
+            question.querySelectorAll(".option").forEach(option=>{
+
+                const radio = option.querySelector("input");
+
+                if(radio.value === correctAnswer){
+                    option.classList.add("correct");
+                }
+
+                if(radio.checked && radio.value !== correctAnswer){
+                    option.classList.add("wrong");
+                }
+
+                radio.disabled = true;
+            });
+
+            if(this.value === correctAnswer){
+                score++;
+            }
+
+            setTimeout(()=>{
+
+                questions[currentQuestion].classList.remove("active");
+
+                currentQuestion++;
+
+                if(currentQuestion < questions.length){
+                    questions[currentQuestion].classList.add("active");
+                }
+                else{
+                    document.getElementById("result").style.display="block";
+                    document.getElementById("result").innerHTML =
+                    `🎉 Bạn đạt ${score}/${questions.length} điểm`;
+                }
+
+            },1000);
+
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
